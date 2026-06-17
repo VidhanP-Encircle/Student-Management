@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StudentCard Snapshot > matches snapshot 1`] = `
+<div>
+  <div
+    class="bg-white shadow rounded-lg p-5"
+  >
+    <h2
+      class="text-xl font-bold"
+    >
+      John Doe
+    </h2>
+    <p
+      class="text-gray-600 mt-1"
+    >
+      john@gmail.com
+    </p>
+    <p
+      class="mt-2"
+    >
+      <strong>
+        Course:
+      </strong>
+       
+      React
+    </p>
+    <a
+      class="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+      data-discover="true"
+      href="/students/1"
+    >
+      View Details
+    </a>
+  </div>
+</div>
+`;
