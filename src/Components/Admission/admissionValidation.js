@@ -18,8 +18,8 @@ export const validationSchemas = [
 
   Yup.object({
     skills: Yup.array()
-      .min(1, "Select at least one skill")
-      .required("Select at least one skill"),
+      .of(Yup.string().trim().required("Skill cannot be empty"))
+      .min(1, "Select at least one skill"),
   }),
 
   Yup.object({}),

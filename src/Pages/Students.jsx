@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getStudents } from "../utils/studentService";
 import SearchBar from "../Components/SearchBar";
 import StudentList from "../Components/StudentList";
 import { fetchStudents } from "../Redux/Slices/studentSlice";

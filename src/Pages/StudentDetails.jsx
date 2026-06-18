@@ -1,11 +1,37 @@
 import { Link, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { fetchStudents } from "../Redux/Slices/studentSlice";
 
 const StudentDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
-  const { students } = useSelector((state) => state.students);
+  const { students, loading, error } = useSelector((state) => state.students);
+  const [isInitialMount, setIsInitialMount] = useState(true);
+
+  useEffect(() => {
+    if (students.length === 0) {
+      dispatch(fetchStudents());
+    }
+    setIsInitialMount(false);
+  }, [students.length]);
+
   const student = students.find((student) => student.id === Number(id));
+
+  if (loading || isInitialMount) {
+    return (
+      <div className="bg-white p-6 rounded shadow text-gray-900">
+        Loading Student Details...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-white p-6 rounded shadow text-red-500">{error}</div>
+    );
+  }
 
   if (!student) {
     return (
